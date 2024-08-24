@@ -1,0 +1,186 @@
+<div class="right-container">
+    <div class="right-container-nav-bar">
+        <div class="nav-bar-tabs">
+            <div class="today" (click)="onTodayClick()" [className]="this.WeatherAppService.today == true?'today today-active':'today'">Today
+            </div>
+            <div class="week" (click)="onWeekClick()" [className]="this.WeatherAppService.week == true?'week week-active':'week'">Weekly</div>
+            <div class="underline" [className]="this.WeatherAppService.today == true?'underline underline-today':'underline underline-week'">
+            </div>
+        </div>
+        <div class="nav-bar-metrics">
+            <div class="celsius" (click)="onCelsiusClick()"
+                [className]=" this.WeatherAppService.celsius == true?'celsius celsius-active':'celsius'">°C</div>
+            <div class="fahrenheit" (click)="onFahrenheitClick()"
+                [className]=" this.WeatherAppService.fahrenheit == true?'fahrenheit fahrenheit-active':'fahrenheit'">°F</div>
+        </div>
+    </div>
+    <div class="right-container-data-box">
+        <!-- week cards -->
+        <div class="right-container-week-cards" *ngIf=" this.WeatherAppService.week == true">
+            <div class="card">
+                <div class="card-day"><span class="day">{{this.WeatherAppService.weekData[0]?.day}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.weekData[0]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-max">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[0]?.tempMax:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[0]?.tempMax)}}°</span>
+                    <span class="temp-min">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[0]?.tempMin:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[0]?.tempMin)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-day"><span class="day">{{this.WeatherAppService.weekData[1]?.day}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.weekData[1]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-max">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[1]?.tempMax:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[1]?.tempMax)}}°</span>
+                    <span class="temp-min">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[1]?.tempMin:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[1]?.tempMin)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-day"><span class="day">{{this.WeatherAppService.weekData[2]?.day}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.weekData[2]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-max">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[2]?.tempMax:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[2]?.tempMax)}}°</span>
+                    <span class="temp-min">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[2]?.tempMin:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[2]?.tempMin)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-day"><span class="day">{{this.WeatherAppService.weekData[3]?.day}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.weekData[3]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-max">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[3]?.tempMax:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[3]?.tempMax)}}°</span>
+                    <span class="temp-min">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[3]?.tempMin:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[3]?.tempMin)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-day"><span class="day">{{this.WeatherAppService.weekData[4]?.day}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.weekData[4]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-max">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[4]?.tempMax:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[4]?.tempMax)}}°</span>
+                    <span class="temp-min">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[4]?.tempMin:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[4]?.tempMin)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-day"><span class="day">{{this.WeatherAppService.weekData[5]?.day}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.weekData[5]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-max">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[5]?.tempMax:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[5]?.tempMax)}}°</span>
+                    <span class="temp-min">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[5]?.tempMin:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[5]?.tempMin)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-day"><span class="day">{{this.WeatherAppService.weekData[6]?.day}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.weekData[6]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-max">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[6]?.tempMax:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[6]?.tempMax)}}°</span>
+                    <span class="temp-min">{{this.WeatherAppService.celsius == true? this.WeatherAppService.weekData[6]?.tempMin:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.weekData[6]?.tempMin)}}°</span>
+                </div>
+            </div>
+        </div>
+        <!-- today cards -->
+        <div class="right-container-today-cards" *ngIf="this.WeatherAppService.today == true">
+            <div class="card">
+                <div class="card-time"><span class="time">{{this.WeatherAppService.todayData[0]?.time}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.todayData[0]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-today">{{this.WeatherAppService.celsius == true? this.WeatherAppService.todayData[0]?.temperature:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.todayData[0]?.temperature)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time"><span class="time">{{this.WeatherAppService.todayData[1]?.time}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.todayData[1]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-today">{{this.WeatherAppService.celsius == true? this.WeatherAppService.todayData[1]?.temperature:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.todayData[1]?.temperature)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time"><span class="time">{{this.WeatherAppService.todayData[2]?.time}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.todayData[2]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-today">{{this.WeatherAppService.celsius == true? this.WeatherAppService.todayData[2]?.temperature:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.todayData[2]?.temperature)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time"><span class="time">{{this.WeatherAppService.todayData[3]?.time}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.todayData[3]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-today">{{this.WeatherAppService.celsius == true? this.WeatherAppService.todayData[3]?.temperature:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.todayData[3]?.temperature)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time"><span class="time">{{this.WeatherAppService.todayData[4]?.time}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.todayData[4]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-today">{{this.WeatherAppService.celsius == true? this.WeatherAppService.todayData[4]?.temperature:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.todayData[4]?.temperature)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time"><span class="time">{{this.WeatherAppService.todayData[5]?.time}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.todayData[5]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-today">{{this.WeatherAppService.celsius == true? this.WeatherAppService.todayData[5]?.temperature:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.todayData[5]?.temperature)}}°</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time"><span class="time">{{this.WeatherAppService.todayData[6]?.time}}</span></div>
+                <div class="card-temp-img"><img src={{this.WeatherAppService.todayData[6]?.tempImage}} alt="temperature image"></div>
+                <div class="card-temp-value">
+                    <span class="temp-today">{{this.WeatherAppService.celsius == true? this.WeatherAppService.todayData[6]?.temperature:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.todayData[6]?.temperature)}}°</span>
+                </div>
+            </div>
+        </div>
+        <div class="right-container-highlights">
+            <div class="right-container-highlights-title">Todays Highlights</div>
+            <div class="right-container-highlights-cards-div">
+                <!-- card 1 -->
+                <div class="right-container-highlights-card">
+                    <div class="uv-card-title">UV Index</div>
+                    <div class="gauge">
+                        <div class="gauge__body">
+                            <div class="gauge__fill" [ngStyle]="{'transform': 'rotate(' + (WeatherAppService.todaysHighlightData.rotation) + 'turn)'}"></div>
+                            <div class="gauge__cover"></div>
+                        </div>
+                    </div>
+                    <div class="uv-card-value"><span>{{this.WeatherAppService.todaysHighlightData.uvIndex}}</span></div>
+                </div>
+                <!-- card 2 -->
+                <div class="right-container-highlights-card">
+                    <div class="wind-status-card-title">Wind Status</div>
+                    <div class="wind-speed-value">{{this.WeatherAppService.todaysHighlightData.windSpeed}}<span class="unit">km/h</span></div>
+                    <div class="wind-status-logo"><img src="assets\windspeed.png" alt=""></div>
+                </div>
+                <!-- card 3 -->
+                <div class="right-container-highlights-card">
+                    <div class="sunrise-sunset-card-title">Sunrise & Sunset</div>
+                    <div class="sunrise-sunset-value">
+                        <div class="sunrise">
+                            <div class="sunrise-img"><img src="assets\sunrise.png" alt=""></div>
+                            <div class="sunrise-time">{{this.WeatherAppService.todaysHighlightData.sunrise}} AM</div>
+                        </div>
+                        <div class="sunset">
+                            <div class="sunset-img"><img src="assets\sunset.png" alt=""></div>
+                            <div class="sunset-time">{{this.WeatherAppService.todaysHighlightData.sunset}} PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-container-highlights-cards-div">
+                <!-- card 4 -->
+                <div class="right-container-highlights-card">
+                    <div class="humidity-card-title">Humidity</div>
+                    <div class="humidity-value">{{this.WeatherAppService.todaysHighlightData.humidity}}<sup>%</sup></div>
+                    <div class="humidity-card-phrase"><span>{{this.WeatherAppService.todaysHighlightData.humidityPhrase}}</span></div>
+                </div>
+                <!-- card 5 -->
+                <div class="right-container-highlights-card">
+                    <div class="visibility-card-title">Visibility</div>
+                    <div class="visibility-value">{{this.WeatherAppService.todaysHighlightData.visibility}}<span class="unit">km</span></div>
+                    <div class="visibility-card-phrase"><span>{{this.WeatherAppService.todaysHighlightData.visibilityPhrase}}</span></div>
+                </div>
+                <!-- card 6 -->
+                <div class="right-container-highlights-card">
+                    <div class="air-quality-card-title">Air Quality</div>
+                    <div class="air-quality-value">{{this.WeatherAppService.todaysHighlightData.airQuality}}</div>
+                    <div class="air-quality-card-phrase"><span>{{this.WeatherAppService.todaysHighlightData.airQualityPhrase}}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

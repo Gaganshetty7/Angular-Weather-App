@@ -1,0 +1,53 @@
+<div class="left-container">
+    <div class="left-container-nav-bar">
+        <div class="search-icon" (click)="onSearch(location.value)">
+            <fa-icon [icon]="faMagnifyingGlass" class="fa-sm"></fa-icon>
+        </div>
+        <div class="search-input">
+            <input type="text" placeholder="Search for places..." #location (keyup.Enter)="onSearch(location.value)">
+        </div>
+        <div class="location-icon" (click)="onSearch(location.value)">
+            <fa-icon [icon]="faMapMarkerAlt" class="fa-sm"></fa-icon>
+        </div>
+    </div>
+    <div class="left-container-data-box">
+        <div class="left-container-temp-data">
+            <div class="left-container-temp-image">
+                <img src={{this.WeatherAppService.leftContainerData.tempImage}} alt="Temperature Image">
+            </div>
+            <div class="left-container-temp-value">
+                {{this.WeatherAppService.celsius == true? this.WeatherAppService.leftContainerData.temperature:this.WeatherAppService.celsiusToFahrenheit(this.WeatherAppService.leftContainerData.temperature)}}<sup>{{this.WeatherAppService.celsius == true? "°C":"°F"}}</sup>
+            </div>
+            <div class="left-container-day-time">
+                <span class="left-container-day">{{this.WeatherAppService.leftContainerData.day}},</span>
+                <span class="left-container-time">{{this.WeatherAppService.leftContainerData.time}}</span>
+            </div>
+        </div>
+        <div class="left-container-dividing-line"></div>
+        <div class="left-container-other-data">
+            <div class="left-container-weather-summary">
+                <div class="left-container-weather-logo">
+                    <fa-icon [icon]="faCloud" class="fa-sm"></fa-icon>
+                </div>
+                <div class="left-container-weather-details">
+                    {{this.WeatherAppService.leftContainerData.weatherSummary}}
+                </div>
+            </div>
+            <div class="left-container-rain-summary">
+                <div class="left-container-rain-logo">
+                    <fa-icon [icon]="faCloudRain" class="fa-m"></fa-icon>
+                </div>
+                <div class="left-container-rain-forecast">
+                   Rain-{{this.WeatherAppService.leftContainerData.rainPercentage}}%
+                </div>
+            </div>
+            <div class="left-container-location-details">
+                <div class="left-container-location-image"></div>
+                <div class="left-container-location-name">
+                    <span class="city-name">{{this.WeatherAppService.leftContainerData.location}}</span>
+                    <img src="assets/city.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

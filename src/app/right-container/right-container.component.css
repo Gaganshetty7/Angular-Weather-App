@@ -1,0 +1,463 @@
+.right-container{
+    height: 100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+/* nav bar css */
+.right-container-nav-bar{
+    flex:1;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: medium;
+    font-weight: 600;
+}
+.nav-bar-tabs{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    margin-left: 30px;
+}
+.nav-bar-metrics{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    margin-right: 30px;
+}
+/* css of today, hover and active */
+.today{
+    color: grey;
+}
+.today:hover{
+    color: black;
+    cursor: pointer;
+}
+.today-active{
+    color: black;
+}
+/* css of week, hover and active */
+.week{
+    color: grey;
+}
+.week:hover{
+    color: black;
+    cursor: pointer;
+}
+.week-active{
+    color: black;
+}
+/* css underline */
+.underline{
+    width: 65px;
+    height: 2px;
+    background-color: black;
+    margin-top: 25px;
+}
+.underline-today{
+    width: 55px;
+    transform: translate3d(-276%,0,0);
+    transition: 100ms;
+}
+.underline-week{
+    transform: translate3d(-126%,0,0);
+    transition: 100ms;
+}
+/* css of celsius, hover and active */
+.celsius{
+    color: black;
+    background-color: white;
+    border-radius: 500px;
+    padding-block: 3px;
+    padding-inline: 5px;
+    font-size: 90%;
+}
+.celsius:hover{
+    color: white;
+    cursor: pointer;
+    background-color: black;
+}
+.celsius-active{
+    color: white;
+    background-color: black;
+}
+/* css of fahrenheit, hover and active */
+.fahrenheit{
+    color: black;
+    background-color: white;
+    border-radius: 500px;
+    padding-block: 3px;
+    padding-inline: 7px;
+    font-size: 90%;
+}
+.fahrenheit:hover{
+    color: white;
+    cursor: pointer;
+    background-color: black;
+}
+.fahrenheit-active{
+    color: white;
+    background-color: black;
+}
+
+/* ****************************************************************************** */
+
+/* css for data box of right container */
+.right-container-data-box{
+    flex:12;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    margin-bottom: 18px;
+    margin-top: 7px;
+}
+
+/* css for week cards of right container */
+.right-container-week-cards{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+}
+
+/* css for week cards of right container */
+.right-container-today-cards{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+}
+
+/* css for cards of week and today cards */
+.card{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    margin: 3px;
+    margin-block: 10px;
+    border-radius: 13px;
+    justify-content: center;
+    align-items: center;
+}   
+.card .day{
+    font-weight: 600;
+    font-size: 14px;
+}
+.card .time{
+    font-weight: 600;
+    font-size: 14px;
+}
+.card-temp-img img{
+    height: 3rem;
+    width: 3rem;
+    margin-block: 5px;
+}
+.card-temp-value{
+    display: flex;
+    justify-content: center;
+}
+.card .temp-max{
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 5px;
+}
+.card .temp-min{
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(164, 164, 164);
+}
+.card .temp-today{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* css for highlights cards of right container */
+.right-container-highlights{
+    display: flex;
+    flex-direction: column;
+    flex:2.4;
+}
+/* css for highlights title */
+.right-container-highlights-title{
+    display: flex;
+    align-items: center;
+    flex:1;
+    margin-bottom: 10px;
+    margin-left: 3px;
+    font-size: medium;
+    font-weight: 500;
+}
+/* right-container-highlights-cards-division */
+.right-container-highlights-cards-div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex: 10;
+    margin-left: 3px;
+    justify-content: space-around;
+}
+/* css of each highlights-card */
+.right-container-highlights-card{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    width: 180px;
+    height: 143px;
+    justify-content: center;
+    align-items: center;
+}
+/* css for uv card */
+.uv-card-title{
+    display: flex;
+    flex:1;
+    font-size: small;
+    color: rgb(160, 160, 160);
+    font-weight: 500;
+    width: 100%;
+    margin-left: 30px;
+    align-items: center;
+}
+.gauge{
+    flex: 2;
+    font-size: 35px;
+    font-weight: 500;
+    width: 80%;
+}
+.gauge__body{
+    position: relative;
+    padding-bottom: 50%;
+    background-color:rgb(239, 239, 239);
+    width: 100%;
+    height: 0%;
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%; 
+    overflow: hidden;
+}
+.gauge__fill{
+    background-color: orange;
+    top:100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: center top;
+    transform: rotate(0.25turn);
+    transition: transform 0.2s ease-out;
+    overflow: hidden;
+}
+.gauge__cover{
+    width: 65%;
+    height: 65%;
+    background-color: white;
+    position: absolute;
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.uv-card-value{
+    flex:1;
+    flex-wrap: wrap;
+    position:absolute;
+    margin-top: 80px;
+    font-size: 34px;
+    font-weight:600;
+    margin-bottom: 6px;
+}
+/* wind status card */
+.wind-status-card-title{
+    display: flex;
+    flex:1;
+    font-size: small;
+    color: rgb(160, 160, 160);
+    font-weight: 500;
+    width: 100%;
+    margin-left: 30px;
+    align-items: center;
+    margin-top: 5px;
+}
+.wind-speed-value{
+    flex: 1.5;
+    font-size: 40px;
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+}
+.wind-speed-value .unit{
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 2px;
+    margin-top: 11px;
+}
+.wind-status-logo{
+    display: flex;
+    flex:1;
+    width: 100%;
+    justify-content:left;
+    align-items:center;
+    margin-left: 25px;
+}
+.wind-status-logo img{
+    width: 25px;
+    height:max-content;
+    margin-bottom: 5px;
+}
+/* css for sunrise and sunset card */
+
+.sunrise-sunset-card-title{
+    display: flex;
+    flex:1;
+    font-size: small;
+    color: rgb(160, 160, 160);
+    font-weight: 500;
+    width: 100%;
+    margin-left: 30px;
+    align-items: center;
+}
+.sunrise-sunset-value{
+    flex:2;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.sunrise{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: left;
+    margin-left: 15px;
+    font-size: large;
+    font-weight: 500;
+}
+.sunset{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: left;
+    margin-left: 15px;
+    font-size: large;
+    font-weight: 500;
+}
+.sunrise-img img{
+    width: 40px;
+    margin-right: 5px;
+}
+.sunset-img img{
+    width: 40px;
+    margin-right: 5px;
+}
+
+/* css for humidity card */
+
+.humidity-card-title{
+    display: flex;
+    flex:1;
+    font-size: small;
+    color: rgb(160, 160, 160);
+    font-weight: 500;
+    width: 100%;
+    margin-left: 30px;
+    align-items: center;
+}
+.humidity-value{
+    flex: 1.5;
+    font-size: 40px;
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+}
+.humidity-value sup{
+    font-size: 18px;
+    margin-top: 10px;
+}
+.humidity-card-phrase{
+    display: flex;
+    flex:1;
+    width: 100%;
+    justify-content:left;
+    align-items:start;
+    margin-left: 35px;
+    font-size: medium;
+    font-weight: 400;
+}
+
+/* css for visibility card */
+.visibility-card-title{
+    display: flex;
+    flex:1;
+    font-size: small;
+    color: rgb(160, 160, 160);
+    font-weight: 500;
+    width: 100%;
+    margin-left: 30px;
+    align-items: center;
+}
+.visibility-value{
+    flex: 1.5;
+    font-size: 40px;
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+}
+.visibility-value .unit{
+    font-size: 18px;
+    margin-top: 10px;
+}
+.visibility-card-phrase{
+    display: flex;
+    flex:1;
+    width: 100%;
+    justify-content:left;
+    align-items:start;
+    margin-left: 35px;
+    font-size: medium;
+    font-weight: 400;
+}
+
+/* css for air-quality card */
+.air-quality-card-title{
+    display: flex;
+    flex:1;
+    font-size: small;
+    color: rgb(160, 160, 160);
+    font-weight: 500;
+    width: 100%;
+    margin-left: 30px;
+    align-items: center;
+}
+.air-quality-value{
+    flex: 1.5;
+    font-size: 40px;
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+}
+.air-quality-value .unit{
+    font-size: 18px;
+    margin-top: 10px;
+}
+.air-quality-card-phrase{
+    display: flex;
+    flex:1;
+    width: 100%;
+    justify-content:left;
+    align-items:start;
+    margin-left: 35px;
+    font-size: medium;
+    font-weight: 400;
+}
